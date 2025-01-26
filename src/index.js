@@ -59,6 +59,12 @@ function searchSubmit(event) {
 
   console.log(searchCity);
 }
+function formatDay(timestamp){
+  let date= new Date(timestamp * 1000);
+  let days=["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days [date.getDay()];
+}
 
 function getForecast(city) {
   let apiKey = "355o03d48211t632342b7f4c029b7a0f";
@@ -69,26 +75,34 @@ function getForecast(city) {
 function displayForecast(response) {
   console.log(response.data);
 
-  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
   let weatherForecastHtml = " ";
 
-  days.forEach(function (day) {
+  response.data.daily.forEach(function (day, index) {
+   if (index < 5) {
     weatherForecastHtml =
       weatherForecastHtml +
       ` <div class="forecast-day">
-              <div class="forecast-weekday">${day}</div>
-              <div class="forecast-icon"> 🌥️</div>
+              <div class="forecast-weekday">${formatDay(day.time)}</div>
+              <div >
+              <img src="${day.condition.icon_url}" class="forecast-icon"/>
+              </div>
               <div class="forecast-temps">
-                <div class="forecast-temp">15°</div>
-              <div class="forecast-temp">9°</div>
+                <div class="forecast-temp">${Math.round(
+                  day.temperature.maximum
+                )}°</div>
+              <div class="forecast-temp">${Math.round(
+                day.temperature.minimum
+              )}°</div>
               </div>
     </div>
     `;
+            }
   });
+
   let weatherForecastElement = document.querySelector("#weather-forecast");
   weatherForecastElement.innerHTML = weatherForecastHtml;
 }
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", searchSubmit);
 
-searchCity("Japan");
+searchCity("Tokyo");
