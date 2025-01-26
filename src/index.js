@@ -16,6 +16,8 @@ function updateWeatherDetails(response) {
   windSpeedElement.innerHTML = `${response.data.wind.speed} mph`;
   temperatureCurrent.innerHTML = Math.round(temperature);
   iconElement.innerHTML = `<img src="${response.data.condition.icon_url}"class="current-temperature-icon">`;
+
+  getForecast(response.data.city);
 }
 function formatDate(date) {
   let minutes = date.getMinutes();
@@ -58,7 +60,15 @@ function searchSubmit(event) {
   console.log(searchCity);
 }
 
-function displayForecast() {
+function getForecast(city) {
+  let apiKey = "355o03d48211t632342b7f4c029b7a0f";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=imperial`;
+  axios(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
+  console.log(response.data);
+
   let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
   let weatherForecastHtml = " ";
 
@@ -82,4 +92,3 @@ let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", searchSubmit);
 
 searchCity("Knoxville");
-displayForecast();
