@@ -64,7 +64,7 @@ main {
 
 .current-city {
   color: rgb(109, 49, 144);
-  font-size: 38px;
+  font-size: 52px;
   font-weight: 900;
   margin: 0;
 }
@@ -116,8 +116,8 @@ main {
 }
 .forecast-icon {
   display: block;
-  width: 88px;
-  height: 88px;
+  width: 80px;
+  height: 80px;
   margin: 0 auto;
 }
 .forecast-temps {
@@ -127,7 +127,7 @@ main {
   margin-top: 10px;
   color: palevioletred;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 20px;
 }
 .forecast-temp {
   font-weight: bold;
