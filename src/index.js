@@ -59,7 +59,29 @@ function searchSubmit(event) {
   console.log(searchCity);
 
 }
+
+function displayForecast() {
+let days=["Tue", "Wed", "Thu", "Fri", "Sat"];
+let weatherForecastHtml=" ";
+
+days.forEach(function (day) {
+weatherForecastHtml= weatherForecastHtml+
+
+` <div class="forecast-day">
+              <div class="forecast-weekday">${day}</div>
+              <div class="forecast-icon"> 🌥️</div>
+              <div class="forecast-temps">
+                <div class="forecast-temp">15°</div>
+              <div class="forecast-temp">9°</div>
+              </div>
+    </div>
+    `;
+    });
+    let weatherForecastElement = document.querySelector("#weather-forecast");
+    weatherForecastElement.innerHTML=weatherForecastHtml;
+}
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", searchSubmit);
 
 searchCity("Knoxville");
+displayForecast();
