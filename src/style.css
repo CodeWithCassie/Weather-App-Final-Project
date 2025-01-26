@@ -64,69 +64,68 @@ main {
   font-weight: 900;
   margin: 0;
 }
-.current-details{
-  font-weight:bolder;
+.current-details {
+  font-weight: bolder;
   color: rgb(149, 14, 207);
   font-size: 18px;
 }
-.humidity{
+.humidity {
   color: palevioletred;
-  font-style:italic;
+  font-style: italic;
 }
-.wind-speed{
-  color:palevioletred;
-  font-style:italic;
+.wind-speed {
+  color: palevioletred;
+  font-style: italic;
 }
-.current-temperature-container{
-   display: flex;
+.current-temperature-container {
+  display: flex;
 }
 .current-temperature-icon {
- width: 88px;
+  width: 88px;
   height: 88px;
 }
 
 .current-temperature-value {
- font-size: 88px;
+  font-size: 88px;
   line-height: 88px;
   font-weight: bold;
 }
 
 .current-temperature-unit {
- margin-top: 6px;
+  margin-top: 6px;
   font-size: 28px;
 }
-.forecast{
-    display:flex;
-    justify-content: space-around;
-    margin-top: 10px;
+.forecast {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
 }
 
-.forecast-weekday{
-    text-align: center;
-     font-weight:bolder;
-    font: 16px;
-    line-height: 20px;
-    margin-bottom: 10px;
-    color:palevioletred;
-    font-size: 20px;
+.forecast-weekday {
+  text-align: center;
+  font-weight: bolder;
+  font: 16px;
+  line-height: 20px;
+  margin-bottom: 10px;
+  color: palevioletred;
+  font-size: 20px;
 }
-.forecast-icon{
-    font-size: 38px;
-    text-align: center;
-
+.forecast-icon {
+  font-size: 38px;
+  text-align: center;
 }
-.forecast-temps{
-    text-align: center;
-    display:flex;
-    justify-content: center;
-    margin-top: 10px;
-    color: palevioletred;
-    font-weight: bold;
-    font-size: 25px;
+.forecast-temps {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  color: palevioletred;
+  font-weight: bold;
+  font-size: 25px;
 }
-.forecast-temp{
-    font-weight: bold;
-    padding: 0 10px;
+.forecast-temp {
+  font-weight: bold;
+  padding: 0 10px;
 }
 
 footer {

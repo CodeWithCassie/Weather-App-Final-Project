@@ -1,6 +1,6 @@
 function updateWeatherDetails(response) {
   let temperatureCurrent = document.querySelector("#temperature");
-  let temperature = (response.data.temperature.current);
+  let temperature = response.data.temperature.current;
   let cityCurrent = document.querySelector("#current-city");
   let descriptionElement = document.querySelector("#description");
   let humidityElement = document.querySelector("#humidity");
@@ -8,15 +8,14 @@ function updateWeatherDetails(response) {
   let timeElement = document.querySelector("#time");
   let date = new Date(response.data.time * 1000);
   let iconElement = document.querySelector("#icon");
- 
 
-  cityCurrent.innerHTML = (response.data.city);
-  descriptionElement.innerHTML = (response.data.condition.description);
+  cityCurrent.innerHTML = response.data.city;
+  descriptionElement.innerHTML = response.data.condition.description;
   timeElement.innerHTML = formatDate(date);
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
   windSpeedElement.innerHTML = `${response.data.wind.speed} mph`;
   temperatureCurrent.innerHTML = Math.round(temperature);
-   iconElement.innerHTML = `<img src="${response.data.condition.icon_url}"class="current-temperature-icon">`;
+  iconElement.innerHTML = `<img src="${response.data.condition.icon_url}"class="current-temperature-icon">`;
 }
 function formatDate(date) {
   let minutes = date.getMinutes();
@@ -33,13 +32,13 @@ function formatDate(date) {
 
   let day = days[date.getDay()];
 
-    if (minutes < 10) {
-      minutes = `0${minutes}`;
-    }
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
 
-    if (hours < 10) {
-      hours = `0${hours}`;
-    }
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
 
   return `${day} ${hours}:${minutes}`;
 }
@@ -51,23 +50,22 @@ function searchCity(city) {
 }
 
 function searchSubmit(event) {
-   event.preventDefault();
+  event.preventDefault();
   let searchInput = document.querySelector("#search-input");
 
   searchCity(searchInput.value);
 
   console.log(searchCity);
-
 }
 
 function displayForecast() {
-let days=["Tue", "Wed", "Thu", "Fri", "Sat"];
-let weatherForecastHtml=" ";
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+  let weatherForecastHtml = " ";
 
-days.forEach(function (day) {
-weatherForecastHtml= weatherForecastHtml+
-
-` <div class="forecast-day">
+  days.forEach(function (day) {
+    weatherForecastHtml =
+      weatherForecastHtml +
+      ` <div class="forecast-day">
               <div class="forecast-weekday">${day}</div>
               <div class="forecast-icon"> 🌥️</div>
               <div class="forecast-temps">
@@ -76,9 +74,9 @@ weatherForecastHtml= weatherForecastHtml+
               </div>
     </div>
     `;
-    });
-    let weatherForecastElement = document.querySelector("#weather-forecast");
-    weatherForecastElement.innerHTML=weatherForecastHtml;
+  });
+  let weatherForecastElement = document.querySelector("#weather-forecast");
+  weatherForecastElement.innerHTML = weatherForecastHtml;
 }
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", searchSubmit);
