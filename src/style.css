@@ -1,10 +1,13 @@
 body {
-  background: rgb(197, 177, 226);
+  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/155/709/original/Rainy_Japan.png?1737872294");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   font-family: "Roboto", sans-serif;
 }
 
 a {
-  color: rgb(109, 49, 144);
+  color:white;
 }
 
 .weather-app {
@@ -129,8 +132,9 @@ main {
 }
 
 footer {
-  border-top: 1px solid #f9f7fe;
-  text-align: center;
-  padding-top: 15px;
-  color: darkorchid;
+  text-align: center; 
+  max-width: 600px;
+  margin:0px auto;
+  padding: 30px;
+  color: white;
 }
